@@ -18,6 +18,8 @@ class pets(models.Model):
 class Family(models.Model):
     name = models.CharField(max_length=50)
     age = models.IntegerField(MinLengthValidator(1), MaxLengthValidator(5)) 
+    author = models.CharField(max_length=100)
+    is_bestselling = models.BooleanField()
 
 
     def __str__(self):
