@@ -1,1 +1,15 @@
 {% extends 'book_outlet/base.html' %}
+
+{% block title %}
+    All members
+{% endblock title %}
+
+{% block body %}
+    <ul>
+        {% for member in members%}
+            <li>{{ member.name }} (age: {{ member.age }})</li>
+        {% endfor %}
+    </ul>
+
+{% endblock body %}
+
