@@ -6,6 +6,9 @@ from django.forms import CharField
 from datetime import datetime
 # Create your models here.
 
+class Tag(models.Model):
+    caption = models.CharField(max_length=20)
+
 class Author(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -18,4 +21,5 @@ class Post(models.Model):
     image_name = models.CharField(max_length=50)
     date = models.DateField(auto_now=True)
     content = models.TextField()
+    tag = models.ManyToManyField(Tag)
 
