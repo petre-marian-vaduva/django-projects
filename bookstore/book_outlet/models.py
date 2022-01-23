@@ -9,11 +9,6 @@ from django.core.validators import MinLengthValidator, MaxLengthValidator
 
 # Create your models here.
 
-class Country(models.Model):
-    name = models.CharField(max_length=50)
-    code = IntegerField()
-
-
 class Address(models.Model):
     street = CharField(max_length=50)
     postal_code = IntegerField()
@@ -31,7 +26,17 @@ class Name(models.Model):
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
+
+class Country(models.Model):
+    name = models.CharField(max_length=50)
+    code = IntegerField()
+    class Meta:
+        verbose_name_plural = 'Countries'
+
+    def __str__(self):
+        return f'{self.name} {self.code}'
     
+
 
 class Book(models.Model):
     name = models.ForeignKey(Name, on_delete=models.CASCADE, null=True)
@@ -40,3 +45,10 @@ class Book(models.Model):
 
     def __str__(self):
         return f'{self.name} ({self.title})'
+
+
+
+
+
+    
+
