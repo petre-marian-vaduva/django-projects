@@ -68,8 +68,7 @@ all_posts = [
 ]
 
 
-def get_date(post):
-    return post['date']
+
 
 # Create your views here.
 
@@ -85,11 +84,3 @@ def posts(request):
         'all_posts': all_posts
     })
 
-def post_detail(request, slug):
-    try:
-        identified_post = next(post for post in all_posts if post['slug'] == slug)
-        return render(request, 'blog/post-detail.html', {
-            'post': identified_post
-        })
-    except:
-        raise Http404()

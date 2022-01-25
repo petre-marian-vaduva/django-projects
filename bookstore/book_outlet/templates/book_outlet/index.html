@@ -10,6 +10,11 @@
             <li>Book name: {{ book.title }}</li>
         {% endfor %}
     </ul>
-
+    <form method='POST'>
+        {% csrf_token %}
+        <label for="username"></label>
+        <input id='username' name='username' type="text">
+        <button>Send</button>
+    </form>
 {% endblock body %}
 

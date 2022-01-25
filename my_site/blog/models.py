@@ -1,9 +1,10 @@
 from email import charset
+from email.policy import default
 from logging import captureWarnings
 from sre_constants import SRE_INFO_LITERAL
 from tkinter import CASCADE
 from django.db import models
-from django.forms import CharField
+from django.forms import CharField, SlugField
 from datetime import datetime
 # Create your models here.
 
@@ -33,4 +34,6 @@ class Post(models.Model):
     date = models.DateField(auto_now=True)
     content = models.TextField()
     tags = models.ManyToManyField(Tag)
+    slug = models.SlugField()
+
 
