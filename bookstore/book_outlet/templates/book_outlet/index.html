@@ -5,15 +5,11 @@
 {% endblock title %}
 
 {% block body %}
-    <ul>
-        {% for book in books%}
-            <li>Book name: {{ book.title }}</li>
-        {% endfor %}
-    </ul>
-    <form method='POST'>
+    <form action='/' method='POST'>
         {% csrf_token %}
-        <label for="username"></label>
-        <input id='username' name='username' type="text">
+        {% comment %} <label for="username"></label> {% endcomment %}
+        {% comment %} <input id='username' name='username' type="text"> {% endcomment %}
+        {{ review_form }}
         <button>Send</button>
     </form>
 {% endblock body %}
