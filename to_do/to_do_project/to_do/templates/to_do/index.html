@@ -15,5 +15,10 @@
         {% endfor %}
         <button type='submit'>Send</button>
     </form>
+    <ul>
+    {% for row in tasks %}
+        <a href="{% url 'test' row.id %}"><li>{{ row.title }}</li></a> 
+    {% endfor %}
+    </ul>
 </body>
 </html>
