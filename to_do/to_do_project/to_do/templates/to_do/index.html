@@ -17,7 +17,11 @@
     </form>
     <ul>
     {% for row in tasks %}
-        <h3>{{ row.title }}</h3>
+        {% if row.complete == True%} 
+            <strike><h3>{{ row.title }}</h3></strike>
+        {% else %}
+            <h3>{{ row.title }}</h3>
+        {% endif %}
         <a href="{% url 'update' row.id %}">Update</a> 
         <a href="{% url 'delete' row.id %}">Delete</a> 
     {% endfor %}
