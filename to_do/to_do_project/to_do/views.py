@@ -20,7 +20,7 @@ def index(request):
         'tasks': tasks
     })
 
-def test(request, number):
+def update(request, number):
     row = Task.objects.get(pk=number)
     form = TaskForm(instance=row)
 
@@ -29,6 +29,17 @@ def test(request, number):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/')
-    return render(request, 'to_do/test.html', {
+    return render(request, 'to_do/update.html', {
         'form': form
+    })
+
+def delete(request, number):
+    task = Task.objects.get(id=number)
+
+    if request.method == 'POST':
+        task.delete()
+        return HttpResponseRedirect('/')
+
+    return render(request, 'to_do/delete.html', {
+        'task': task
     })

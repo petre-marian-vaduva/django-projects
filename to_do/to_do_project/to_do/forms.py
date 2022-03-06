@@ -8,6 +8,6 @@ class TaskForm(forms.ModelForm):
         model = Task
         fields = ['title', 'complete']
         labels = {
-            'title': 'Your title',
+            'title': 'Add a task',
             'complete': 'Is it completed ?'
         }
