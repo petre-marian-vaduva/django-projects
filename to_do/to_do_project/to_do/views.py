@@ -23,6 +23,12 @@ def index(request):
 def test(request, number):
     row = Task.objects.get(pk=number)
     form = TaskForm(instance=row)
+
+    if request.method == 'POST':
+        form = TaskForm(request.POST, instance=row)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
     return render(request, 'to_do/test.html', {
         'form': form
     })
